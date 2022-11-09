@@ -54,7 +54,7 @@ const backendDependencies = {
  * `/openmrs/spa/hello`.
  */
 function setupOpenMRS() {
-  const moduleName = "@openmrs/esm-template-app";
+  const moduleName = "@isanteplus/esm-isanteplus-app";
 
   const options = {
     featureName: "hello-world",
