@@ -10,7 +10,7 @@ on:
       - created
 
 env:
-  ESM_NAME: "@openmrs/esm-isanteplus-app"
+  ESM_NAME: "@isanteplus/esm-isanteplus-app"
   JS_NAME: "openmrs-esm-isanteplus-app.js"
 
 jobs:
