@@ -50,6 +50,7 @@ jobs:
           node-version: "18.x"
           registry-url: "https://registry.npmjs.org"
       - run: yarn install --no-immutable
+      - run: yarn plugin import version
       - run: yarn version --new-version "$(node -e "console.log(require('semver').inc(require('./package.json').version, 'patch'))")-pre.${{ github.run_number }}" --no-git-tag-version
       - run: yarn build
       - run: yarn config set npmAuthToken "${NODE_AUTH_TOKEN}" && yarn npm publish --tag next
