@@ -1,9 +1,7 @@
-![Node.js CI](https://github.com/openmrs/openmrs-esm-template-app/workflows/Node.js%20CI/badge.svg)
+![Node.js CI](https://github.com/IsantePlus/openmrs-esm-isanteplus-app/workflows/Node.js%20CI/badge.svg)
 
-# OpenMRS ESM Template App
+# OpenMRS ESM IsantePlus App
 
-This repository provides a starting point for creating your own
-[OpenMRS Microfrontend](https://wiki.openmrs.org/display/projects/OpenMRS+3.0%3A+A+Frontend+Framework+that+enables+collaboration+and+better+User+Experience).
 
 For more information, please see the
 [OpenMRS Frontend Developer Documentation](https://openmrs.github.io/openmrs-esm-core/#/).
