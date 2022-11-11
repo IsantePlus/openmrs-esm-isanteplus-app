@@ -5,8 +5,9 @@
  * microfrontend.
  */
 
-import { getAsyncLifecycle, defineConfigSchema } from "@openmrs/esm-framework";
+import { getAsyncLifecycle, defineConfigSchema ,getSyncLifecycle} from "@openmrs/esm-framework";
 import { configSchema } from "./config-schema";
+import { createDashboardLink } from '@openmrs/esm-patient-common-lib';
 
 /**
  * This tells the app shell the version of this app. We inject this variable
@@ -41,6 +42,13 @@ const backendDependencies = {
   "webservices.rest": "^2.2.0",
 };
 
+const summaryDashboardMeta = {
+  slot: 'patient-chart-ed-dashboard-slot',
+  columns: 4,
+  title: 'ED SECTION',
+};
+
+
 /**
  * This function performs any setup that should happen at microfrontend
  * load-time (such as defining the config schema) and then returns an
@@ -72,29 +80,13 @@ function setupOpenMRS() {
     ],
     extensions: [
       {
-        name: "Red box",
-        load: getAsyncLifecycle(
-          () => import("./boxes/extensions/red-box"),
-          options
-        ),
-        slot: "Boxes",
-      },
-      {
-        name: "Blue box",
-        load: getAsyncLifecycle(
-          () => import("./boxes/extensions/blue-box"),
-          options
-        ),
-        slot: "Boxes",
-        // same as `slots: ["Boxes"],`
-      },
-      {
-        name: "Brand box",
-        load: getAsyncLifecycle(
-          () => import("./boxes/extensions/brand-box"),
-          options
-        ),
-        slot: "Boxes",
+        name: 'charts-summary-dashboard-2',
+        slot: 'patient-chart-dashboard-slot',
+        order: 0,
+        load: getSyncLifecycle(createDashboardLink(summaryDashboardMeta), { featureName: 'encounter', moduleName }),
+        meta: summaryDashboardMeta,
+        online: true,
+        offline: true,
       },
     ],
   };
