@@ -5,9 +5,13 @@
  * microfrontend.
  */
 
-import { getAsyncLifecycle, defineConfigSchema ,getSyncLifecycle} from "@openmrs/esm-framework";
+import {
+  getAsyncLifecycle,
+  defineConfigSchema,
+  getSyncLifecycle,
+} from "@openmrs/esm-framework";
 import { configSchema } from "./config-schema";
-import { createDashboardLink } from '@openmrs/esm-patient-common-lib';
+import { createDashboardLink } from "@openmrs/esm-patient-common-lib";
 
 /**
  * This tells the app shell the version of this app. We inject this variable
@@ -43,11 +47,10 @@ const backendDependencies = {
 };
 
 const summaryDashboardMeta = {
-  slot: 'patient-chart-ed-dashboard-slot',
+  slot: "patient-chart-ed-dashboard-slot",
   columns: 4,
-  title: 'ED SECTION',
+  title: "ED SECTION",
 };
-
 
 /**
  * This function performs any setup that should happen at microfrontend
@@ -80,10 +83,13 @@ function setupOpenMRS() {
     ],
     extensions: [
       {
-        name: 'charts-summary-dashboard-2',
-        slot: 'patient-chart-dashboard-slot',
+        name: "charts-summary-dashboard-2",
+        slot: "patient-chart-dashboard-slot",
         order: 0,
-        load: getSyncLifecycle(createDashboardLink(summaryDashboardMeta), { featureName: 'encounter', moduleName }),
+        load: getSyncLifecycle(createDashboardLink(summaryDashboardMeta), {
+          featureName: "encounter",
+          moduleName,
+        }),
         meta: summaryDashboardMeta,
         online: true,
         offline: true,
