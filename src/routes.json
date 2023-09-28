@@ -1,0 +1,22 @@
+{
+    "$schema": "https://json.openmrs.org/routes.schema.json",
+    "backendDependencies": {
+      "webservices.rest": "^2.24.0"
+    },
+    "pages": [],
+    "extensions": [
+        {
+            "name": "charts-summary-dashboard-2",
+            "component": "edSectionDashboardLink",
+            "slot": "patient-chart-dashboard-slot",
+            "online": true,
+            "offline": true,
+            "meta": {
+              "columns": 4,
+              "slot": "patient-chart-ed-dashboard-slot",
+              "path": "ED SECTION"
+            }
+          }
+    ]
+  }
+  
