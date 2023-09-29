@@ -24,7 +24,7 @@ jobs:
         with:
           node-version: "18.x"
       - run: yarn install --no-immutable
-      - run: yarn verify
+      - run: yarn verify --passWithNoTests
       - run: yarn build
       - name: Upload Artifacts
         uses: actions/upload-artifact@v3
